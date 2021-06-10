@@ -20,7 +20,13 @@ namespace Assessment_MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+
+            var model = new HomeModel();
+
+            model.Aniversario = DateTime.Now;
+
+
+            return View(model);
         }
 
         public IActionResult Privacy()

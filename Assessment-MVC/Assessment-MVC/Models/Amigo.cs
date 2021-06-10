@@ -8,7 +8,9 @@ namespace Assessment_MVC.Models
     public class Amigo
     {
         public int AmigoId { get; set; }
-        public string Nome { get; set; }
-        public DateTime Aniversario { get; set; }
+        public string nome { get; set; }
+        public string sobrenome { get; set; }
+        public DateTime aniversario { get; set; }
+        public string email { get; set; }
     }
 }
