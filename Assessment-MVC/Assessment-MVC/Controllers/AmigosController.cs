@@ -64,7 +64,10 @@ namespace Assessment_MVC.Controllers
             amigo.nome = nome;
             amigo.sobrenome = sobrenome;
             amigo.aniversario = aniversario;
-            return View();
+
+            BancoDeDados.Amigos.Update(amigo);
+            BancoDeDados.SaveChanges();
+            return Redirect("/amigos/index");
         }
     }
 }
