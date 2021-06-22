@@ -11,6 +11,5 @@ namespace Assessment_MVC.Models
         public string nome { get; set; }
         public string sobrenome { get; set; }
         public DateTime aniversario { get; set; }
-        public string email { get; set; }
     }
 }

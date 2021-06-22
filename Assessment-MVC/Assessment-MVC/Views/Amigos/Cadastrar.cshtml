@@ -1,15 +1,15 @@
-﻿<form>
+﻿<form action="/amigos/cadastrar" method="post">
     <div class="form-group">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" aria-describedby="emailHelp" placeholder="Nome do Amigo" required>
+        <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" required>
     </div>
     <div class="form-group">
         <label for="sobrenome">Sobrenome</label>
-        <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome do Amigo">
+        <input type="text" name="sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome">
     </div>
     <div class="form-group">
         <label for="data">Data de Aniversário</label>
-        <input type="text" class="form-control" id="data" placeholder="Data do Aniversário" required>
+        <input type="date" name="aniversario" class="form-control" id="data" placeholder="Data do Nascimento" required>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>

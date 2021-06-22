@@ -23,7 +23,7 @@ namespace Assessment_MVC.Controllers
 
             var model = new HomeModel();
 
-            model.Aniversario = DateTime.Now;
+            //model.Aniversario = DateTime.Now;
 
 
             return View(model);

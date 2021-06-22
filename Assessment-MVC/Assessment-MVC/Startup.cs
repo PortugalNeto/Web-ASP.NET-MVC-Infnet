@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Assessment_MVC.App_Data;
 
 namespace Assessment_MVC
 {
@@ -26,7 +27,7 @@ namespace Assessment_MVC
         {
             services.AddControllersWithViews();
 
-            string connectionString = Configuration.GetConnectionString("BancoLocal");
+            string connectionString = Configuration.GetConnectionString("LocalDb");
 
             
             services.AddDbContext<BancoDeDados>(config => config.UseSqlServer(connectionString));
@@ -56,16 +57,16 @@ namespace Assessment_MVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Amigos}/{action=Index}/{id?}");
             });
         }
     }
 
-    public class BancoDeDados : DbContext
-    {
-        public BancoDeDados(DbContextOptions options) : base(options)
-        {
+    //    public class BancoDeDados : DbContext
+    //    {
+    //        public BancoDeDados(DbContextOptions options) : base(options)
+    //        {
 
-        }
-    }
+    //        }
+    //    }
 }
