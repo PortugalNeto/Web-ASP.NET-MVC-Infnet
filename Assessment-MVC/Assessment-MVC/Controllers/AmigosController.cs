@@ -18,11 +18,17 @@ namespace Assessment_MVC.Controllers
         private BancoDeDados BancoDeDados { get; set; }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string nome)
         {
-            var amigos = BancoDeDados.Amigos.ToList();
-
+            List<Amigo> amigos;
+            if (string.IsNullOrWhiteSpace(nome))
+            {
+                amigos = BancoDeDados.Amigos.ToList();
+                return View(amigos);
+            }
+            amigos = BancoDeDados.Amigos.Where(aluno => aluno.nome.Contains(nome)).ToList();
             return View(amigos);
+
         }
 
         [HttpGet]
@@ -66,6 +72,25 @@ namespace Assessment_MVC.Controllers
             amigo.aniversario = aniversario;
 
             BancoDeDados.Amigos.Update(amigo);
+            BancoDeDados.SaveChanges();
+            return Redirect("/amigos/index");
+        }
+
+        [HttpGet]
+        public ActionResult Excluir (int id)
+        {
+            var amigo = BancoDeDados.Amigos.Find(id);
+
+            return View(amigo);
+        }
+
+        [HttpPost]
+        public ActionResult ExcluirConfirma(int id)
+        {
+            var amigo = BancoDeDados.Amigos.Find(id);
+
+
+            BancoDeDados.Amigos.Remove(amigo);
             BancoDeDados.SaveChanges();
             return Redirect("/amigos/index");
         }
